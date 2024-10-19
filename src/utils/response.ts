@@ -1,3 +1,3 @@
-const response = (status: number, message: unknown) => ({ status, message })
+const response = (status: number, message: any) => ({ status, message })
 
 export default response

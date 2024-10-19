@@ -11,7 +11,7 @@ class UserServices {
     const users = await this.model.findOne({ where: { email }})
     
     if(users != null) {
-      if(users.dataValues.password === password) return response(200, users) 
+      if(users.dataValues.password === password) return response(200, users.dataValues) 
       else return response(401, 'Unknow Password!')
 
     }else return response(401, 'Unknow Email!')
@@ -37,6 +37,7 @@ class UserServices {
     const users = await this.model.update(params, { where: {id : params.id }})
     return response(200, users)
   }
+
 }
 
 export default UserServices
